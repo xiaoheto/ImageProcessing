@@ -5,7 +5,7 @@ import shutil
 
 random.seed(42)
 
-base_dir = Path("/home/hezining/GithubProjects/ImageProcessing")
+base_dir = Path("/home/zining/GithubProjects/ImageProcessing")
 init_data = base_dir / "init_data"
 dataset_dir = base_dir / "dataset"
 
