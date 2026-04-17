@@ -1,0 +1,13 @@
+File Name,Prediction,Confidence
+3none.jpg,0none,95.71
+2none.jpg,0none,99.90
+1none.jpg,0none,99.97
+2openmouth.jpg,0none,52.23
+1openmouth.jpg,3openmouth,40.34
+3openmouth.jpg,3openmouth,90.94
+1smile.jpg,2smile,45.64
+2smile.jpg,2smile,81.62
+3smile.jpg,2smile,51.34
+1pouting.jpg,1pouting,100.00
+2pouting.jpg,1pouting,100.00
+3pouting.jpg,1pouting,99.25

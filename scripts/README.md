@@ -6,3 +6,5 @@
 - `model.py` CNN model
 
 - `train.py` Train the model and validate the effect
+
+- `predict.py` Use the best model to test the pictures we took
