@@ -7,7 +7,7 @@ import csv
 import os
 
 results_dir = '../results'
-output_csv = os.path.join(results_dir, 'batchnorm_model.csv')
+output_csv = os.path.join(results_dir, 'colorjitter_model.csv')
 
 if not os.path.exists(results_dir):
     os.makedirs(results_dir)
@@ -25,6 +25,7 @@ print(f"current device: {device}")
 model = SimpleFaceCNN(num_classes=4).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
 
 num_epochs = 20
 best_val_acc = 0.0
@@ -52,6 +53,8 @@ for epoch in range(num_epochs):
         _, predicted = torch.max(outputs.data, 1)
         train_total += labels.size(0)
         train_correct += (predicted == labels).sum().item()
+
+    scheduler.step()
 
     avg_train_loss = running_loss / len(train_loader)
     train_acc = 100 * train_correct / train_total
