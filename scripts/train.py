@@ -3,11 +3,12 @@ import torch.nn as nn
 import torch.optim as optim
 from data_loader import get_data_loaders
 from model import SimpleFaceCNN
+from resnet_model import CustomResNet
 import csv
 import os
 
 results_dir = '../results'
-output_csv = os.path.join(results_dir, 'colorjitter_model.csv')
+output_csv = os.path.join(results_dir, 'resnet_model.csv')
 
 if not os.path.exists(results_dir):
     os.makedirs(results_dir)
@@ -22,7 +23,7 @@ train_loader, val_loader, test_loader = get_data_loaders(data_dir=data_path, bat
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"current device: {device}")
 
-model = SimpleFaceCNN(num_classes=4).to(device)
+model = CustomResNet(num_classes=4).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
